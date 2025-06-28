@@ -4,15 +4,15 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RandomWalker : MonoBehaviour
+public class RandomWalkerRight : MonoBehaviour
 {
     //Create a walker
-    Walker walker;
+    WalkerRight walker;
 
     void Start()
     {
         //instantiate walker
-        walker = new Walker();
+        walker = new WalkerRight();
         //set color
         walker.Show();
 
@@ -25,7 +25,7 @@ public class RandomWalker : MonoBehaviour
     }
 }
 
-public class Walker
+public class WalkerRight
 {
 
     private Vector3 location;
@@ -35,7 +35,7 @@ public class Walker
     private GameObject w = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
 
-    public Walker()
+    public WalkerRight()
     {
         FindCenter();
         Show();
@@ -61,23 +61,23 @@ public class Walker
     {
         Vector3 delta = new Vector3();
 
-        int choice = UnityEngine.Random.Range(0, 4);
+        float choice = UnityEngine.Random.Range(0, 1.0f);
 
         //Debug.Log(choice);
 
-        if (choice == 0)
+        if (choice < 0.4f)
         {
             delta.x += 1.25f;
         }
-        else if (choice == 1)
+        else if (choice < 0.6f)
         {
             delta.x -= 1.25f;
         }
-        else if (choice == 2)
+        else if (choice < 0.8f)
         {
             delta.y += 1.25f;
         }
-        else if (choice == 3)
+        else
         {
             delta.y -= 1.25f;
         }
