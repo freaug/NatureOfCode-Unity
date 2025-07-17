@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Mover Class
+//Mover Class used with Example1_7 a way to do this but not the best way probably
 public class Mover : MonoBehaviour
 {
     public Vector2 position;

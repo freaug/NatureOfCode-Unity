@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewNoise : MonoBehaviour
+public class IntroductionFig5 : MonoBehaviour
 {
     // Give the script an IntroMover
     private IntroMoverI5 mover;
@@ -17,6 +17,7 @@ public class NewNoise : MonoBehaviour
     void Update()
     {
         mover.timeSinceReset = Time.time - mover.resetTime;
+        Debug.Log("Time Since Reset " + mover.timeSinceReset);
         // Have the mover step and check edges
         mover.Step();
         mover.CheckEdges();
@@ -57,7 +58,13 @@ public class IntroMoverI5
     public void Step()
     {
         float width = widthScale * Mathf.PerlinNoise(Time.time * xScale, 0.0f) * timeSinceReset;
+        Debug.Log("X Value " + Mathf.PerlinNoise(Time.time * xScale, 0.0f));
+        Debug.Log("X Value times Width Scale " + widthScale * Mathf.PerlinNoise(Time.time * xScale, 0.0f));
+        Debug.Log("Width " + width);
         float height = heightScale * Mathf.PerlinNoise(0.0f, Time.time * yScale) * timeSinceReset;
+        Debug.Log("Y Value " + Mathf.PerlinNoise(0.0f, Time.time * yScale));
+        Debug.Log("Y Value times Height Scale " + heightScale * Mathf.PerlinNoise(0.0f, Time.time * yScale));
+        Debug.Log("Height " + height);
         Vector3 pos = moverGO.transform.position;
         pos.y = height;
         pos.x = width;
