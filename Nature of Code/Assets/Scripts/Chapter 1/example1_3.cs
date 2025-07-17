@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class example1_4 : MonoBehaviour
+public class example1_3 : MonoBehaviour
 {
     //prefab for our circle
     public GameObject circle;

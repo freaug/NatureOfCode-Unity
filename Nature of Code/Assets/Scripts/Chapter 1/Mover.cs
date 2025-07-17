@@ -1,0 +1,37 @@
+using UnityEngine;
+
+//Mover Class
+public class Mover : MonoBehaviour
+{
+    public Vector2 position;
+    public Vector2 velocity;
+    public Vector2 bounds;
+
+    //Move Function
+    public void Move()
+    {
+        position = position + velocity;
+    }
+
+    //Check and wrap edges function
+    public void CheckEdges()
+    {
+        if (position.x > bounds.x)
+        {
+            position.x = -bounds.x;
+        }
+        else if (position.x < -bounds.x)
+        {
+            position.x = bounds.x;
+        }
+
+        if (position.y > bounds.y)
+        {
+            position.y = -bounds.y;
+        }
+        else if (position.y < -bounds.y)
+        {
+            position.y = bounds.y;
+        }
+    }
+}
