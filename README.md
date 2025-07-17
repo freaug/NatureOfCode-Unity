@@ -1,6 +1,8 @@
 # NatureOfCode-Unity
 Working on writing the Nature of Code examples for Unity as a way to learn to script in Unity. 
 
+Everything is derived from [The Nature of Code](https://natureofcode.com/introduction/) by Daniel Shiffman.
+
 Organized into Chapters.  I mostly do the examples and sometimes the exercises. 
 
 Things I've learned so far when coming from Processing/P5.js:
