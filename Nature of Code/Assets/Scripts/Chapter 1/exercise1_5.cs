@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 /**
 Create a simulation of an object (think about a vehicle) that accelerates 
 when you press the up arrow and brakes when you press the down arrow.
-
 **/
 
 public class exercise1_5 : MonoBehaviour

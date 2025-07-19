@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour
     //Move Function
     public void Move()
     {
-        position = position + velocity;
+        position = position + velocity * Time.deltaTime;
     }
 
     //Check and wrap edges function
