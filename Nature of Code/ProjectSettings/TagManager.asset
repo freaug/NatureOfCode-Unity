@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ceiling
+  - Top
+  - Bottom
+  - Left
+  - Right
+  - Enclosure
   layers:
   - Default
   - TransparentFX
