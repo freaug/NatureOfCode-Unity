@@ -7,41 +7,27 @@ you need to create and assign a physics material and assign it to the ball and t
 **/
 public class example2_1_Unity : MonoBehaviour
 {
-    public Rigidbody ballRB;
-
-    Vector2 gravity = new Vector2(0.0f, -9.8f);
+    //rigid body of out ball
+    private Rigidbody ballRB;
+    //vector we add to the  if mouse is pressed
     Vector2 wind = new Vector2(0.1f, 0.0f);
     private float scalar;
 
     void Start()
     {
-
+        //Get the rigid body
         ballRB = GetComponent<Rigidbody>();
 
+        //set the mass of the ball
         ballRB.mass = (4f / 3f) * 3.14f * (1 * 1 * 1);
-
-        scalar = 15;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ballRB.linearVelocity);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            ballRB.AddForce(Vector2.left * scalar, ForceMode.Impulse);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Left"))
-        {
-            ballRB.AddForce(-wind, ForceMode.Impulse);
-        }
-        if (collision.gameObject.CompareTag("Right"))
+        //if mouse pressed then we apply the wind force
+        if (Input.GetMouseButton(0))
         {
             ballRB.AddForce(wind, ForceMode.Impulse);
         }
