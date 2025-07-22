@@ -11,22 +11,19 @@ public class example2_5 : MonoBehaviour
     public GameObject liquidPrefab;
     List<Circle2_5> circles = new List<Circle2_5>();
     Liquid2_3 liquid;
-    private Vector2 gravity = new Vector2(0.0f, -9.814f * 100);
+    private Vector2 gravity = new Vector2(0.0f, -9.814f);
     private Vector2 wind = new Vector2(1.0f, 0.0f);
-
-    float scalar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        scalar = 100;
 
-        liquid = new Liquid2_3(liquidPrefab, 0.1f * scalar * 0.5f);
+        liquid = new Liquid2_3(liquidPrefab, 0.1f);
 
         for (int i = 0; i < 8; i++)
         {
             //add 8 circles evenly spaced with random mass and height
-            circles.Add(new Circle2_5(Instantiate(circlePrefab), Random.Range(0.75f, 2.25f), new Vector2(i * 4f + (-bounds.x + 1f), (int)Random.Range(3, 8))));
+            circles.Add(new Circle2_5(Instantiate(circlePrefab), Random.Range(0.15f, 2.5f), new Vector2(i * 4f + (-bounds.x + 1f), (int)Random.Range(3, 8))));
         }
 
     }
@@ -90,6 +87,9 @@ public class example2_5 : MonoBehaviour
 
 }
 
+//so the reason this was being jank is that in the p5js examples Dan is able to use pixel size where as we are using scale size, since our scale is 1 everything was too 'light'
+//any easy way to 'fix' this to get results that look similar is to scale the mass up by 10 when we are doing the physics simulations but not when we apply it to scaling the 
+//size of the object
 public class Circle2_5
 {
     float mass;
@@ -116,7 +116,7 @@ public class Circle2_5
     public void ApplyForce(Vector2 force)
     {
         Vector2 f = force;
-        f = f / mass;
+        f = f / mass * 10;
         acceleration = acceleration + f * Time.deltaTime;
     }
 
@@ -160,7 +160,7 @@ public class Circle2_5
 
     public float GetMass()
     {
-        return mass;
+        return mass * 10;
     }
 
     public Vector2 GetVelocity()
