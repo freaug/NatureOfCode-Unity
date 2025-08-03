@@ -19,4 +19,4 @@ There are probably better ways to do everything that I am doing, so definitely d
 
 In chapter 2, I'm going to start doing a straight translation of the NOC examples as well as using the built-in physics engine of Unity, so there will be two versions of the exercises/examples
 
-Physics simulations (everything in this chapter) must be performed in  FixedUpdate.  Also, to have the simulations look similar to the p5js examples (arbitrary decision I made), you can multiply the mass of the circle/mover by 10, but not use that scaled mass to draw the circle/mover; otherwise, the circle/mover will be too 'light'.
+Physics simulations (everything in this chapter) must be performed in  FixedUpdate.  Also, to have the simulations look similar to the p5js examples (arbitrary decision I made), you can multiply the mass of the circle/mover by 10, but not use that scaled mass to draw the circle/mover; otherwise, the circle/mover will be too 'lite'.
